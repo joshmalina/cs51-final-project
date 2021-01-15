@@ -1,10 +1,10 @@
 # josh environment
 import sys
-sys.path.insert(0, '../implementation')
-import implementation.multivariate_linear_regression as mlp
-sys.path.insert(0, '../data_tools')
-import data_tools.get_one_weather_vector as gv
-import implementation.binary_logistic_reg as binary_log_reg
+sys.path.insert(0, '/home/utkarsh/projects/linear_and_logistic_regression/implementation')
+import multivariate_linear_regression as mlp
+sys.path.insert(0, '/home/utkarsh/projects/linear_and_logistic_regression/data_tools')
+import get_one_weather_vector as gv
+import binary_logistic_reg as binary_log_reg
 
 # jorge environment
 # import data_tools.get_one_weather_vector as gv
@@ -19,7 +19,7 @@ print(gv.now_weather_readable())
 
 xs = np.array(gv.raw_on())[:, 0:11]
 print ("Given this data, our multivariate_linear_regression algorithm predicts that the pollution is:")
-print mlp.g.predict(xs)[0]
+print (mlp.g.predict(xs)[0])
 
 print("\n=======================================================================================\n")
 print("Our binary logistic regression algorithm, taking wind speed as its predictor, generates the following theta values based on historical data: ")

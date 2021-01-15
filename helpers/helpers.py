@@ -215,7 +215,7 @@ class Helpers(object):
     @staticmethod
     def scale(x, m, sd):
         r = (x - m) / sd
-        print r
+        print (r)
         return r
 
     @staticmethod

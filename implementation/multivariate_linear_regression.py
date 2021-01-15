@@ -15,8 +15,8 @@ from pylab import *
 import sys
 sys.path.insert(0, '../helpers')
 import helpers
-sys.path.insert(0, '../interfaces')
-import interfaces.i_multivariate_linear_regression as interface
+sys.path.insert(0, '/home/utkarsh/projects/linear_and_logistic_regression/interfaces')
+import i_multivariate_linear_regression as interface
 
 
 class MultivariteLinearRegression(interface.IMultivariateLinearRegression):
@@ -62,13 +62,17 @@ class MultivariteLinearRegression(interface.IMultivariateLinearRegression):
     def theta_maker(self, xs, ys, step_size, when_stop):
 
         # initialize theta parameters according to how many features we are evaluating
-        theta = zeros(shape=(xs.shape[1], 1))
-        
+        theta = np.zeros(shape=(xs.shape[1], 1))
+        # print(theta)
         num_points = len(ys)
         num_thetas = len(theta)
-
+        # print("xs=",xs)
+        # print("ys=",ys)
+        # print("step_size=",step_size)
+        # print("when_stop=",when_stop)
         # stop at some arbitrary point when we think we've reached
         # the minimum
+
         for i in range(when_stop):
 
             # build a vector of predictions for every x given theta
@@ -83,7 +87,7 @@ class MultivariteLinearRegression(interface.IMultivariateLinearRegression):
             for j in range(0, num_thetas):
 
                 # multiply error by corresponding x value           
-                e_at_given_x = e * xs[:, j]
+                e_at_given_x = e.dot(xs[:, j])
 
                 # update theta, i.e. step down if positive error / step up if neg error
                 theta[j] -= step_size * sum(e_at_given_x) / num_points

@@ -53,7 +53,7 @@ class WeatherInstance(DataClass):
 		features.insert(7, 'wind_speed_mph', eval_instance(api_feature_name='windSpeed', dad_feature_name='wind_speed_mph'))
 		features.insert(8, 'temperature_f', eval_instance('temperature', 'temperature_f'))
 		features.insert(9, 'pressure_mb', eval_instance('pressure', 'pressure_mb'))
-		features.insert(10, 'visibility_mi', eval_instance(api_feature_name='visibility', dad_feature_name='visibility_mi'))
+		features.insert(10, 'visibility_mi', eval_instance(api_feature_name='visibility_miles_max_10', dad_feature_name='visibility_mi'))
 
 		return features 
 

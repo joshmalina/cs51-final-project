@@ -9,7 +9,7 @@ __author__ = 'Jorge Cotillo'
 
 # jorge environment
 import helpers as _helpers
-import interfaces.regression_abstract as _abstract
+import regression_abstract as _abstract
 
 # common
 import numpy as np
@@ -22,7 +22,7 @@ class BinaryLogisticRegression(_abstract.RegressionAbstract):
 
     def retrieve_training_set(self):
         x_input_variables = ['wind_speed_mph']
-        xs, ys = _helpers.Helpers.get_binary_training_data_from_csv('data/binary_training_examples_one_feature.csv',
+        xs, ys = _helpers.Helpers.get_binary_training_data_from_csv('Data/binary_training_examples_one_feature.csv',
                                                                     x_input_variables,
                                                                     'polluted')
         return xs, ys

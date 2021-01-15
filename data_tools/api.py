@@ -1,7 +1,7 @@
 from pytz import timezone
 import pytz
 from datetime import datetime, timedelta
-import urllib2
+from urllib.request import urlopen
 import json
 
 # some basic methods and data for querying the forecastio api
@@ -43,7 +43,7 @@ class api(object):
 	    return local_dt
 
 	def get_and_load_data(self, fully_formed_url):
-		f = urllib2.urlopen(fully_formed_url)
+		f = urlopen(fully_formed_url)
 		json_string = f.read()
 		parsed_json = json.loads(json_string)
 		return parsed_json
